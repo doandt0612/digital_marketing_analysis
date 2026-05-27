@@ -1,0 +1,53 @@
+{
+  "collected_at": "2026-05-23T03:16:31.065248+00:00",
+  "total_records": 5063,
+  "records_by_brand": {
+    "Hoa Sen Home": 2340,
+    "Rita Vo": 2402,
+    "Viglacera": 321
+  },
+  "priced_records_by_brand": {
+    "Hoa Sen Home": 2340,
+    "Rita Vo": 2402,
+    "Viglacera": 321
+  },
+  "schema": [
+    "collected_at",
+    "brand",
+    "domain",
+    "source_platform",
+    "source_method",
+    "record_level",
+    "product_id",
+    "variant_id",
+    "product_url",
+    "product_name",
+    "variant_title",
+    "sku",
+    "barcode",
+    "vendor",
+    "product_type",
+    "category_path",
+    "regular_price_vnd",
+    "sale_price_vnd",
+    "compare_at_price_vnd",
+    "currency",
+    "availability",
+    "inventory_quantity",
+    "inventory_management",
+    "inventory_policy",
+    "option1",
+    "option2",
+    "option3",
+    "image_url",
+    "images",
+    "tags",
+    "description",
+    "raw_source"
+  ],
+  "notes": [
+    "All three datasets use the same product/variant-level schema.",
+    "Hoa Sen Home public GraphQL does not expose inventory quantity in the selected query, so inventory_quantity can be empty for HSH.",
+    "Record counts differ because the websites publish different catalog sizes; Viglacera currently exposes fewer products than HSH and Rita Vo through public Sapo products.json."
+  ]
+}

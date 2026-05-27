@@ -1,0 +1,6 @@
+﻿{
+    "equal_records_per_brand":  321,
+    "total_equal_sample_records":  963,
+    "source_file":  "balanced_products.csv",
+    "output_file":  "balanced_products_equal_sample.csv"
+}

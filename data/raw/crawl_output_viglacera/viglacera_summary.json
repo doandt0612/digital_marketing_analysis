@@ -1,0 +1,13 @@
+{
+  "collected_at": "2026-05-22T19:46:26.737183+00:00",
+  "source_url": "https://viglacera.vn",
+  "sitemap_url_records": 741,
+  "product_variant_records": 321,
+  "page_records": 741,
+  "priced_product_variant_records": 321,
+  "notes": [
+    "Viglacera uses Sapo/Bizweb. Product data was collected from public products.json pagination.",
+    "Sitemap URLs were collected recursively from products, pages, collections and blogs sitemaps.",
+    "Page text/metadata were parsed with BeautifulSoup from sitemap URLs."
+  ]
+}
