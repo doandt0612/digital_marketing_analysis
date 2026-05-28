@@ -36,6 +36,54 @@ def normalize_unicode(text):
     return unicodedata.normalize("NFC", text)
 
 
+# Từ điển chuẩn hóa Teencode và viết tắt tiếng Việt cơ bản
+TEENCODE_MAP = {
+    "ko": "không",
+    "k": "không",
+    "khg": "không",
+    "nv": "nhân viên",
+    "đc": "được",
+    "dc": "được",
+    "sp": "sản phẩm",
+    "ch": "cửa hàng",
+    "ok": "tốt",
+    "oke": "tốt",
+    "oks": "tốt",
+    "vs": "với",
+    "đt": "điện thoại",
+    "dt": "điện thoại",
+    "tks": "cảm ơn",
+    "thanks": "cảm ơn",
+    "trc": "trước",
+    "đg": "đang",
+    "dg": "đang",
+    "cug": "cũng",
+    "cg": "cũng",
+    "ib": "nhắn tin",
+    "inbox": "nhắn tin",
+    "fb": "facebook",
+    "gđ": "gia đình",
+    "kh": "khách hàng",
+    "cty": "công ty",
+    "bik": "biết",
+    "bít": "biết",
+    "bit": "biết",
+}
+
+
+
+def normalize_teencode(text):
+    """
+    Chuẩn hóa các từ viết tắt và teencode tiếng Việt phổ biến trong văn bản.
+    Sử dụng regex r'\b...\b' để đảm bảo chỉ thay thế khi khớp cả từ độc lập.
+    """
+    if not text:
+        return ""
+    for word, replacement in TEENCODE_MAP.items():
+        text = re.sub(rf'\b{word}\b', replacement, text)
+    return text
+
+
 def clean_text_for_nlp(text):
     """
     Tiền xử lý văn bản tiếng Việt trước khi đưa vào phân tích.
@@ -46,6 +94,7 @@ def clean_text_for_nlp(text):
         3. Loại bỏ URL, email, số điện thoại.
         4. Loại bỏ emoji và ký tự đặc biệt (giữ lại chữ cái tiếng Việt, số, dấu câu cơ bản).
         5. Loại bỏ khoảng trắng thừa.
+        6. Chuẩn hóa các từ viết tắt và teencode cơ bản.
     """
     if not text or not isinstance(text, str):
         return ""
@@ -73,7 +122,11 @@ def clean_text_for_nlp(text):
     # Loại bỏ khoảng trắng thừa
     text = re.sub(r'\s+', ' ', text).strip()
 
+    # Chuẩn hóa teencode viết tắt
+    text = normalize_teencode(text)
+
     return text
+
 
 
 # ============================================================================
